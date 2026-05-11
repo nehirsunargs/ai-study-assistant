@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app) 
 
 API_KEY = os.getenv("API_KEY")
-API_URL = "https://api.together.xyz/v1/chat/completions"
+API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 def query_mistral_model(prompt: str, max_tokens: int = 100):
     headers = {
@@ -19,8 +19,8 @@ def query_mistral_model(prompt: str, max_tokens: int = 100):
     }
     
     data = {
-        "model": "mistralai/Mistral-7B-Instruct-v0.2",
-        "prompt": prompt,
+        "model": "llama3-8b-8192",
+        "messages": [{"role": "user", "content": prompt}],
         "max_tokens": max_tokens
     }
     
