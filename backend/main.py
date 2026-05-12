@@ -12,7 +12,7 @@ CORS(app)
 API_KEY = os.getenv("API_KEY")
 API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-def query_mistral_model(prompt: str, max_tokens: int = 100):
+def query_mistral_model(prompt: str, max_tokens: int = 1024):
     headers = {
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json"
